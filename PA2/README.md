@@ -41,6 +41,7 @@ The provided code (`main_two_view.py`) is structured in multiple stages:
 .  
 ├── input/                  # Input dataset directory 
 │ ├── checker_board/        # 19 checker board images for camera calibration (optional)
+│ ├── Checkerboard8x6.pdf   # Checker boerd image for custom dataset (optional)
 │ ├── custom/               # Make you dataset (optional)
 │ ├── choonsik/             # 19 Object images
 │ ├── toothless/            # 21 Object images

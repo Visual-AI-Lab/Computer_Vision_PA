@@ -6,7 +6,7 @@ GIST computer vision programming assignments
 - TA: Wooseok Jeon (jws5271a@gm.gist.ac.kr)
 
 ## PA2: Structure from Motion
-- Due: 
+- Due: 10th, May, 2025
 - TA: Dongmin Shin (newdm2000@gm.gist.ac.kr)
 
 ## PA3: Normal and Mesh Refinement
