@@ -58,7 +58,7 @@ def main():
     CHECKER_BOARD = (6, 8)
     
     # Start MATLAB engine if required in step 3 or 6
-    if 3 in args.step or 6 in args.step:
+    if 2 in args.step or 5 in args.step:
         eng = matlab.engine.start_matlab()
         eng.addpath(r'./Step2/', nargout=0)
         
@@ -66,7 +66,7 @@ def main():
     ######################### Step7: Camera Calibration #########################
     #############################################################################
     calib_file_path = os.path.join(args.output_path, 'camera_intrinsic.pkl')
-    if 1 in args.step and not os.path.isfile(calib_file_path):
+    if 7 in args.step and not os.path.isfile(calib_file_path):
         # Define checkerboard image directory path
         checker_file_path = os.path.join(args.dataset_path, "checker_board", args.image_mode)
         checker_files = os.listdir(checker_file_path)
@@ -88,7 +88,7 @@ def main():
     #############################################################################
     matching_result_img_path = os.path.join(output_path, 'matching_results_init_images.jpg')
     matching_result_path = os.path.join(output_path, 'matching_results_init_images.pkl')
-    if 2 in args.step and not os.path.isfile(matching_result_path):
+    if 1 in args.step and not os.path.isfile(matching_result_path):
         # Define the paths for the two consecutive images
         init_image_path = os.path.join(args.dataset_path, args.object, str(args.initial_image_num) + "." + args.image_mode)
         matching_image_path = os.path.join(args.dataset_path, args.object, str((args.second_image_num) % 10) + "." + args.image_mode)
@@ -124,7 +124,7 @@ def main():
     ################### Step2: Essential Matrix Estimation ######################
     #############################################################################
     E_result_path = os.path.join(output_path, 'E_estimation.pkl')
-    if 3 in args.step and not os.path.isfile(E_result_path):
+    if 2 in args.step and not os.path.isfile(E_result_path):
         # TODO: Estimate the essential matrix using matched keypoints
         E, inlier_p1, inlier_p2, inlier_matches_idx = essential_matrix_estimation(kp1, kp2, matches, camera_intrinsic, eng, max_iter=args.ransac_iter, threshold=args.em_threshold)
         
@@ -150,7 +150,7 @@ def main():
     ################## Step3: Essential Matrix Decomposition ####################
     #############################################################################
     P1_result_path = os.path.join(output_path, 'camera_pose.pkl')
-    if 4 in args.step and not os.path.isfile(P1_result_path):
+    if 3 in args.step and not os.path.isfile(P1_result_path):
         # TODO: Estimate the essential decompostion for camera pose
         P0, P1 = essential_matrix_decomposition(E, inlier_p1, inlier_p2, camera_intrinsic)
 
@@ -173,7 +173,7 @@ def main():
     #############################################################################
     triangulation_result_path = os.path.join(output_path, 'triangulation_results.pkl')
     pcl_result_path = os.path.join(output_path, 'two_view_results.ply')
-    if 5 in args.step and not os.path.isfile(triangulation_result_path):
+    if 4 in args.step and not os.path.isfile(triangulation_result_path):
 
         points_3d, inlier_idx = triangulate_points(P0, P1, inlier_p1, inlier_p2, camera_intrinsic)
         
