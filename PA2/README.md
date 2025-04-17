@@ -34,7 +34,7 @@ The provided code (`main_two_view.py`) is structured in multiple stages:
    Using the checker board, the intrinsic camera matrix are calculated by the function. Additionally, make your own dataset and test the SfM.  
    *Fill the #todo blank in:* `camera_calibration.py`
 
-(The additional code for multi-view SfM will be updated in 17th April.)
+(The additional code for multi-view SfM will be updated in 21th April.)
 
 ## Directory Structure
 ```
@@ -58,7 +58,7 @@ The provided code (`main_two_view.py`) is structured in multiple stages:
 ├── main_two_view.py        # Main Python script to run the assignment 
 └── README.md # This README file
 ```
-(The additional code for multi-view SfM will be updated in 17th April.)
+(The additional code for multi-view SfM will be updated in 21th April.)
 
 ## Requirements
 
@@ -174,10 +174,10 @@ python main.py -s all -d ./input -o ./output --object moai
 
 ## Implementation Details for Additional Credit
 1. **Step 5: Three Point Algorithm for PnP.**  
-   (The additional code for multi-view SfM will be updated in 17th April.)
+   (The additional code for multi-view SfM will be updated in 21th April.)
 
 2. **Step 6: Bundle Adjustments.**  
-   (The additional code for multi-view SfM will be updated in 17th April.)
+   (The additional code for multi-view SfM will be updated in 21th April.)
    
 3. **Step 7: Camera Calibration**  
    - Detect corner of checker board and calculate intrinsic matrix using opencv.
