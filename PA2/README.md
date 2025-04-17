@@ -1,4 +1,4 @@
-# PA2: GIST Computer Vision Programming Assignment 2
+# PA2: Structure from Motion
 This repository contains the code for the second programming assignment on Structure from Motion. The goal of the assignment is to recover 3D structure from two images by performing feature matching, essential matrix estimation and decomposition, and triangulation.
 
 - **Due Date:** 10th May 2025  
