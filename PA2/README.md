@@ -204,3 +204,6 @@ The script generates the following outputs for each object:
 - Camera pose: `camera_pose.pkl`
 - Triangulation results: Saved `triangulation_results.pkl`
 - 3D point cloud results: Saved `two_view_results.ply`
+
+## Troubleshooting
+- Edit the line 71 in `main_two_view.py` for folder structure of camera_calibration.
