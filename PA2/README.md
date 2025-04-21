@@ -188,7 +188,7 @@ python main.py -s all -d ./input -o ./output --object moai
    - Estimate the additional camera pose using three point algorithm with RANSAC
    - And, calculate the addtional inlier points to 3d points
 
-7. **Bundle Adjustments.(Implemented)**  
+7. **Step 6: Bundle Adjustments.(Implemented)**  
    - Already implemented the bundle. Only use the function. (use the option `--apply_bundle True`)
 
 8. **Step 7: Camera Calibration**  
