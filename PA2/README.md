@@ -51,11 +51,11 @@ The provided code (`main_two_view.py`) is structured in multiple stages:
 │
 ├── output/                   # Output directory to save results
 │ └── camera_intrinsic.pkl    # Camera intrinsic parameter
-├── output_multi/             # Output directory to save results for multi view
-│ └── camera_intrinsic.pkl    # Camera intrinsic parameter
+├── output_multi/             # Output directory to save results for multi view (optional)
+│ └── camera_intrinsic.pkl    # Camera intrinsic parameter (optional)
 │
 ├── Step2/                    # MATLAB scripts for essential matrix estimation
-├── Step5/                    # MATLAB scripts for essential matrix estimation
+├── Step5/                    # MATLAB scripts for essential matrix estimation (optional)
 ├── utils/                    # Utility modules for keypoint conversion, point cloud writing, etc.
 │
 ├── E_decomposition.py        # Module to implement essential_matrix_decomposition 
@@ -63,11 +63,11 @@ The provided code (`main_two_view.py`) is structured in multiple stages:
 ├── feature_matching.py       # Module to implement matching_two_image 
 ├── triangulation.py          # Module to implement triangulate_points
 │
-├── three_point_algorithm.py  # Module to implement three_point_algorithm and calculate_inlier_points
-├── bundle.py                 # Already implemented. Only use the bundle for multi view.
+├── three_point_algorithm.py  # Module to implement three_point_algorithm and calculate_inlier_points  (optional)
+├── bundle.py                 # Already implemented. Only use the bundle for multi view.  (optional)
 │
 ├── main_two_view.py          # Main Python script to run the assignment 
-├── main_mulit_view.py        # Main Python script to run the assignment 
+├── main_mulit_view.py        # Main Python script to run the assignment (optional)
 └── README.md                 # This README file
 ```
 
