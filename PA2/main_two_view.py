@@ -68,7 +68,7 @@ def main():
     calib_file_path = os.path.join(args.output_path, 'camera_intrinsic.pkl')
     if 7 in args.step and not os.path.isfile(calib_file_path):
         # Define checkerboard image directory path
-        checker_file_path = os.path.join(args.dataset_path, "checker_board", args.image_mode)
+        checker_file_path = os.path.join(args.dataset_path, "checker_board")
         checker_files = os.listdir(checker_file_path)
         checker_files = natsort.natsorted(checker_files)
         
@@ -174,7 +174,6 @@ def main():
     triangulation_result_path = os.path.join(output_path, 'triangulation_results.pkl')
     pcl_result_path = os.path.join(output_path, 'two_view_results.ply')
     if 4 in args.step and not os.path.isfile(triangulation_result_path):
-
         points_3d, inlier_idx = triangulate_points(P0, P1, inlier_p1, inlier_p2, camera_intrinsic)
         
         data_tri = {'points_3d': points_3d, "inlier_idx": inlier_idx}

@@ -29,36 +29,47 @@ The provided code (`main_two_view.py`) is structured in multiple stages:
    *Fill the #todo blank in:* `triangulate_points`
 
 ### Additional credit
+5. **Three Point Algorithm:**  
+   In growing step, calculate additional camera pose using three point algorithm with RANSAC. Additionally, calculate inlier points.  
+   *Fill the #todo blank in:* `three_point_algorithm`, and `calculate_inlier_points`
 
-5. **Camera Calibration:**  
+6. **Camera Calibration:**  
    Using the checker board, the intrinsic camera matrix are calculated by the function. Additionally, make your own dataset and test the SfM.  
-   *Fill the #todo blank in:* `camera_calibration.py`
-
-(The additional code for multi-view SfM will be updated in 21th April.)
+   *Fill the #todo blank in:* `camera_calibaration`
 
 ## Directory Structure
 ```
 .  
-├── input/                  # Input dataset directory 
-│ ├── checker_board/        # 19 checker board images for camera calibration (optional)
-│ ├── Checkerboard8x6.pdf   # Checker boerd image for custom dataset (optional)
-│ ├── custom/               # Make you dataset (optional)
-│ ├── choonsik/             # 19 Object images
-│ ├── toothless/            # 21 Object images
-│ ├── nike/                 # 17 Object images
-│ └── moai/                 # 19 Object images
-├── output/                 # Output directory to save results
-│ └── camera_intrinsic.pkl  # Camera intrinsic parameter
-├── Step2/                  # MATLAB scripts for essential matrix estimation
-├── utils/                  # Utility modules for keypoint conversion, point cloud writing, etc.
-├── E_decomposition.py      # Module to implement essential_matrix_decomposition 
-├── E_estimation.py         # Module to implement essential_matrix_estimation 
-├── feature_matching.py     # Module to implement matching_two_image 
-├── triangulation.py        # Module to implement triangulate_points 
-├── main_two_view.py        # Main Python script to run the assignment 
-└── README.md # This README file
+├── input/                    # Input dataset directory 
+│ ├── checker_board/          # 19 checker board images for camera calibration (optional)
+│ ├── Checkerboard8x6.pdf     # Checker boerd image for custom dataset (optional)
+│ ├── custom/                 # Make you dataset (optional)
+│ ├── choonsik/               # 19 Object images
+│ ├── toothless/              # 21 Object images
+│ ├── nike/                   # 17 Object images
+│ └── moai/                   # 19 Object images
+│
+├── output/                   # Output directory to save results
+│ └── camera_intrinsic.pkl    # Camera intrinsic parameter
+├── output_multi/             # Output directory to save results for multi view
+│ └── camera_intrinsic.pkl    # Camera intrinsic parameter
+│
+├── Step2/                    # MATLAB scripts for essential matrix estimation
+├── Step5/                    # MATLAB scripts for essential matrix estimation
+├── utils/                    # Utility modules for keypoint conversion, point cloud writing, etc.
+│
+├── E_decomposition.py        # Module to implement essential_matrix_decomposition 
+├── E_estimation.py           # Module to implement essential_matrix_estimation 
+├── feature_matching.py       # Module to implement matching_two_image 
+├── triangulation.py          # Module to implement triangulate_points
+│
+├── three_point_algorithm.py  # Module to implement three_point_algorithm and calculate_inlier_points
+├── bundle.py                 # Already implemented. Only use the bundle for multi view.
+│
+├── main_two_view.py          # Main Python script to run the assignment 
+├── main_mulit_view.py        # Main Python script to run the assignment 
+└── README.md                 # This README file
 ```
-(The additional code for multi-view SfM will be updated in 21th April.)
 
 ## Requirements
 
@@ -173,13 +184,14 @@ python main.py -s all -d ./input -o ./output --object moai
    - Generates a PLY file containing a colored point cloud.
 
 ## Implementation Details for Additional Credit
-1. **Step 5: Three Point Algorithm for PnP.**  
-   (The additional code for multi-view SfM will be updated in 21th April.)
+6. **Step 5: Three Point Algorithm for PnP.**  
+   - Estimate the additional camera pose using three point algorithm with RANSAC
+   - And, calculate the addtional inlier points to 3d points
 
-2. **Step 6: Bundle Adjustments.**  
-   (The additional code for multi-view SfM will be updated in 21th April.)
-   
-3. **Step 7: Camera Calibration**  
+7. **Bundle Adjustments.(Implemented)**  
+   - Already implemented the bundle. Only use the function. (use the option `--apply_bundle True`)
+
+8. **Step 7: Camera Calibration**  
    - Detect corner of checker board and calculate intrinsic matrix using opencv.
    - Print the checker board and take a picture.
    - Make your own dataset. Note that, fix the manual focus.
