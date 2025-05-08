@@ -91,7 +91,7 @@ def main():
     if 1 in args.step and not os.path.isfile(matching_result_path):
         # Define the paths for the two consecutive images
         init_image_path = os.path.join(args.dataset_path, args.object, str(args.initial_image_num) + "." + args.image_mode)
-        matching_image_path = os.path.join(args.dataset_path, args.object, str((args.second_image_num) % 10) + "." + args.image_mode)
+        matching_image_path = os.path.join(args.dataset_path, args.object, str((args.second_image_num)) + "." + args.image_mode)
         
         # TODO: Feature matching between two images
         img1, img2, kp1, kp2, des1, des2, matches = matching_two_image(init_image_path, matching_image_path, threshold_knn=args.matching_threshold_knn)
@@ -102,7 +102,7 @@ def main():
         cv2.imwrite(matching_result_img_path, matching_result_img)
         matching_data = {
             "image1": str(args.initial_image_num) + "." + args.image_mode, 
-            "image2": str((args.second_image_num) % 10) + "." + args.image_mode,
+            "image2": str((args.second_image_num)) + "." + args.image_mode,
             "kp1": keypoints_to_dict(kp1), "kp2": keypoints_to_dict(kp2), "des1": des1, "des2": des2, "matches": dmatches_to_dict(matches)
         }
         with open(matching_result_path, 'wb') as f:
@@ -187,7 +187,7 @@ def main():
     print("Number of triangulated 3D points:", points_3d.shape[0])
     
     init_image_path = os.path.join(args.dataset_path, args.object, str(args.initial_image_num) + "." + args.image_mode)
-    matching_image_path = os.path.join(args.dataset_path, args.object, str((args.second_image_num) % 10) + "." + args.image_mode)
+    matching_image_path = os.path.join(args.dataset_path, args.object, str((args.second_image_num)) + "." + args.image_mode)
     colors = calculate_colors(init_image_path, matching_image_path, inlier_p1, inlier_p2, inlier_idx)
     write_ply(pcl_result_path, points_3d, colors, [P0, P1], show_camera=args.visualize_camera_pose)
 

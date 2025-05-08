@@ -19,24 +19,24 @@ def three_point_algorithm(matches, next_matches, inlier_idx, initial_point, add_
         threepoint_max_iter (int): Maximum RANSAC iterations.
 
     Returns:
-        best_P (np.ndarray): Best estimated projection matrix (3x4).
+        best_P (np.ndarray): Best estimated pose matrix (3x4).
     """
     # TODO: Fill this function
     
     return best_P
 
-def calculate_inlier_points(EM1, EM2, kp1, kp2, matches, camera_intrinsic, threshold=1e-2):
+def calculate_inlier_points(EM1, EM2, kp1, kp2, matches, camera_intrinsic, three_point_inlier_threshold=1e-2):
     """
     Identify inlier keypoint pairs between two images given their essential matrices.
 
     Parameters:
-        EM1 (np.ndarray): Projection matrix of image 1 (3x4).
-        EM2 (np.ndarray): Projection matrix of image 2 (3x4).
+        EM1 (np.ndarray): pose matrix of image 1 (3x4).
+        EM2 (np.ndarray): pose matrix of image 2 (3x4).
         kp1 (list[cv2.KeyPoint]): Keypoints from image 1.
         kp2 (list[cv2.KeyPoint]): Keypoints from image 2.
         matches (list[cv2.DMatch]): Matches between descriptors of image1 and image2.
         camera_intrinsic (np.ndarray): Intrinsic camera matrix (3x3).
-        threshold (float): Epipolar error threshold for inlier selection.
+        three_point_inlier_threshold (float): Epipolar error threshold for inlier selection.
 
     Returns:
         inlier_p1 (np.ndarray): Array of inlier points from image 1 (Nx2).
@@ -50,11 +50,11 @@ def calculate_inlier_points(EM1, EM2, kp1, kp2, matches, camera_intrinsic, thres
 
 def convert_camera_matrix(Rt0, Rt1):
     """
-    Convert two camera projection matrices to the essential matrix E.
+    Convert two camera pose matrices to the essential matrix E.
 
     Parameters:
-        Rt0 (np.ndarray): Projection matrix of camera 0 (3x4).
-        Rt1 (np.ndarray): Projection matrix of camera 1 (3x4).
+        Rt0 (np.ndarray): pose matrix of camera 0 (3x4).
+        Rt1 (np.ndarray): pose matrix of camera 1 (3x4).
 
     Returns:
         E (np.ndarray): Essential matrix (3x3).
