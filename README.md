@@ -11,5 +11,5 @@ GIST computer vision programming assignments
 
 ## PA3: Normal and Mesh Refinement
 - Due: 12th, June, 2025
-- TA: Chanhwi Jeong (chanwhij@gm.gist.ac.kr)
+- TA: Chanhwi Jeong (chanhwij@gm.gist.ac.kr)
 
